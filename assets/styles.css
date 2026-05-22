@@ -356,7 +356,7 @@ a:hover {
 
 .media-item {
   display: grid;
-  grid-template-columns: 168px minmax(0, 1fr);
+  grid-template-columns: 132px minmax(0, 1fr);
   gap: 18px;
   align-items: start;
 }
@@ -367,7 +367,8 @@ a:hover {
 
 .media-thumb {
   display: block;
-  aspect-ratio: 4 / 3;
+  width: 132px;
+  height: 92px;
   overflow: hidden;
   border: 1px solid var(--line);
   border-radius: 4px;
@@ -503,10 +504,12 @@ a:hover {
   }
 
   .media-item {
-    grid-template-columns: 1fr;
+    grid-template-columns: 104px minmax(0, 1fr);
+    gap: 14px;
   }
 
   .media-thumb {
-    max-width: 320px;
+    width: 104px;
+    height: 78px;
   }
 }
