@@ -17,19 +17,28 @@ function renderSiteNav() {
   if (!header) return;
 
   const current = currentPageName();
-  const links = sitePages.map((item) => {
-    const currentAttr = item.page === current ? ' aria-current="page"' : "";
-    return `<a href="${item.href}"${currentAttr}>${item.label}</a>`;
-  });
+  const navLinks = header.querySelector(".nav-links");
 
-  header.innerHTML = `
-    <nav class="nav" aria-label="Main navigation">
-      <a class="brand" href="index.html">Han's academic page</a>
-      <div class="nav-links">
-        ${links.join("\n        ")}
-      </div>
-    </nav>
-  `;
+  if (!navLinks) {
+    const links = sitePages.map((item) => `<a href="${item.href}">${item.label}</a>`);
+    header.innerHTML = `
+      <nav class="nav" aria-label="Main navigation">
+        <a class="brand" href="index.html">Han's academic page</a>
+        <div class="nav-links">
+          ${links.join("\n          ")}
+        </div>
+      </nav>
+    `;
+  }
+
+  header.querySelectorAll(".nav-links a").forEach((link) => {
+    const target = link.getAttribute("href");
+    if (target === current) {
+      link.setAttribute("aria-current", "page");
+    } else {
+      link.removeAttribute("aria-current");
+    }
+  });
 }
 
 renderSiteNav();
