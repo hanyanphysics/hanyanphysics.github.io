@@ -250,6 +250,10 @@ a:hover {
   background: var(--paper);
 }
 
+.section-block {
+  margin-bottom: 30px;
+}
+
 .section h2 {
   margin: 0 0 18px;
   color: var(--accent);

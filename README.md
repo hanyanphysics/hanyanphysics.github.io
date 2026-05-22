@@ -9,6 +9,9 @@ The repository is intentionally dependency-free: GitHub Pages can serve the HTML
 - `index.html` - home page
 - `research.html` - research themes and publications
 - `resume.html` - local CV PDF link and embed
+- `code.html` - public code repositories
+- `media.html` - media coverage list with paper citations
+- `grants.html` - current grants, past grants, and honors
 
 ## Migration Notes
 
