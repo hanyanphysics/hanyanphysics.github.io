@@ -174,12 +174,17 @@ a:hover {
   text-align: center;
 }
 
-.links-row {
+.links-row,
+.profile-links {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 10px;
   margin-top: 16px;
+}
+
+.profile-links {
+  gap: 8px;
 }
 
 .button-link {
@@ -198,6 +203,46 @@ a:hover {
   border-color: var(--accent);
   background: #fff7f3;
   color: var(--accent);
+}
+
+.profile-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 36px;
+  padding: 6px 10px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--ink);
+  font-size: 14px;
+  line-height: 1;
+  text-decoration: none;
+  box-shadow: 0 6px 16px rgba(31, 35, 40, 0.05);
+}
+
+.profile-link svg {
+  width: 17px;
+  height: 17px;
+  flex: 0 0 auto;
+  fill: currentColor;
+}
+
+.profile-link:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 20px rgba(31, 35, 40, 0.08);
+}
+
+.profile-link.orcid {
+  color: #6f9f18;
+}
+
+.profile-link.scholar {
+  color: #1f6feb;
+}
+
+.profile-link.github {
+  color: #24292f;
 }
 
 .section {
@@ -389,6 +434,10 @@ a:hover {
   }
 
   .links-row {
+    justify-content: flex-start;
+  }
+
+  .profile-links {
     justify-content: flex-start;
   }
 }
