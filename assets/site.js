@@ -23,7 +23,7 @@ function renderSiteNav() {
     const links = sitePages.map((item) => `<a href="${item.href}">${item.label}</a>`);
     header.innerHTML = `
       <nav class="nav" aria-label="Main navigation">
-        <a class="brand" href="index.html">Han's academic page</a>
+        <a class="brand" href="index.html">Han Yan</a>
         <div class="nav-links">
           ${links.join("\n          ")}
         </div>
