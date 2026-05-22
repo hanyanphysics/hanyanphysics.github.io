@@ -45,7 +45,7 @@ function profilePanelMarkup() {
   return `
     <img class="portrait" src="assets/images/portrait-han-yan.png" alt="Han Yan">
     <h2 class="profile-name">Han Yan (闫寒)</h2>
-    <p class="contact">Assistant Professor, ISPP, The University of Tokyo<br>hanyanphy [AT] gmail.com</p>
+    <p class="contact">Assistant Professor, ISSP, The University of Tokyo<br>hanyanphy [AT] gmail.com</p>
     <p class="profile-summary">I work on theoretical condensed matter physics, with a focus on quantum spin liquids, fractons, and emergent gauge structures.</p>
     <p class="profile-summary">Current themes include frustrated magnetism, holographic toy models, and machine-learning approaches to many-body systems.</p>
     <p class="profile-mini-links">
