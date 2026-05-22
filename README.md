@@ -8,7 +8,7 @@ The repository is intentionally dependency-free: GitHub Pages can serve the HTML
 
 - `index.html` - home page
 - `research.html` - research themes and publications
-- `resume.html` - CV link and embedded Google Drive preview
+- `resume.html` - local CV PDF link and embed
 
 ## Migration Notes
 
