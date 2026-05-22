@@ -1,14 +1,16 @@
 :root {
-  --page: #fbfbfa;
+  --page: #f7f7f5;
   --paper: #ffffff;
-  --ink: #202124;
-  --muted: #5f6368;
-  --line: #dadce0;
-  --accent: #8f250f;
-  --link: #0b5394;
-  --panel: #f2f2f0;
-  --sidebar: 250px;
-  --max: 980px;
+  --ink: #1f2328;
+  --muted: #626a73;
+  --line: #dedbd4;
+  --accent: #8f2d16;
+  --accent-dark: #5b1d10;
+  --link: #075985;
+  --panel: #efeee9;
+  --sidebar: 272px;
+  --max: 1040px;
+  --shadow: 0 16px 42px rgba(31, 35, 40, 0.08);
 }
 
 * {
@@ -22,7 +24,7 @@ html {
 body {
   margin: 0;
   padding-left: var(--sidebar);
-  background: var(--paper);
+  background: var(--page);
   color: var(--ink);
   font-family: Bitter, Georgia, serif;
   font-size: 17px;
@@ -44,7 +46,9 @@ a:hover {
   inset: 0 auto 0 0;
   z-index: 20;
   width: var(--sidebar);
-  background: var(--panel);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0)),
+    var(--panel);
   border-right: 1px solid var(--line);
 }
 
@@ -52,14 +56,14 @@ a:hover {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 42px;
+  gap: 44px;
   min-height: 100%;
-  padding: 48px 44px;
+  padding: 52px 44px;
 }
 
 .brand {
   color: var(--accent);
-  font-size: 31px;
+  font-size: 32px;
   font-weight: 400;
   line-height: 1.12;
   text-decoration: none;
@@ -68,7 +72,7 @@ a:hover {
 .nav-links {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
   font-size: 16px;
 }
 
@@ -76,32 +80,39 @@ a:hover {
   color: var(--ink);
   display: inline-flex;
   line-height: 1.2;
-  padding: 3px 7px;
+  padding: 5px 8px;
+  border-radius: 2px;
   text-decoration: none;
 }
 
+.nav-links a:hover {
+  background: rgba(143, 45, 22, 0.08);
+  color: var(--accent);
+}
+
 .nav-links a[aria-current="page"] {
-  background: var(--ink);
+  background: var(--accent-dark);
   color: #fff;
   font-weight: 700;
 }
 
 .hero {
   background:
-    linear-gradient(rgba(28, 28, 28, 0.58), rgba(28, 28, 28, 0.58)),
-    repeating-linear-gradient(135deg, #2d2d2d 0 2px, #4a4a47 2px 8px);
+    linear-gradient(90deg, rgba(25, 27, 29, 0.9), rgba(35, 38, 40, 0.72)),
+    repeating-linear-gradient(135deg, #2c302f 0 2px, #41423e 2px 9px);
   color: #fff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 .hero-inner {
   max-width: var(--max);
-  padding: 74px 58px 56px;
+  padding: 76px 64px 58px;
 }
 
 .hero h1 {
   max-width: 760px;
   margin: 0;
-  font-size: 42px;
+  font-size: 46px;
   font-weight: 400;
   line-height: 1.18;
   letter-spacing: 0;
@@ -109,27 +120,43 @@ a:hover {
 
 .hero p {
   max-width: 680px;
-  margin: 18px 0 0;
+  margin: 16px 0 0;
+  color: rgba(255, 255, 255, 0.88);
   font-size: 20px;
 }
 
 .container {
   max-width: var(--max);
-  padding: 42px 58px;
+  padding: 48px 64px;
 }
 
 .intro-grid {
   display: grid;
-  grid-template-columns: 240px minmax(0, 1fr);
-  gap: 40px;
+  grid-template-columns: 260px minmax(0, 1fr);
+  gap: 44px;
   align-items: start;
+}
+
+.intro-grid aside {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  box-shadow: var(--shadow);
+  padding: 18px;
+}
+
+.intro-grid article {
+  max-width: 720px;
+}
+
+.intro-grid article p:first-child {
+  margin-top: 0;
 }
 
 .portrait {
   width: 100%;
   border: 1px solid var(--line);
   border-radius: 4px;
-  box-shadow: 0 12px 28px rgba(32, 33, 36, 0.08);
 }
 
 .contact {
@@ -140,7 +167,7 @@ a:hover {
 }
 
 .profile-name {
-  margin: 0 0 4px;
+  margin: 14px 0 4px;
   color: var(--ink);
   font-size: 26px;
   font-weight: 700;
@@ -169,11 +196,13 @@ a:hover {
 
 .button-link:hover {
   border-color: var(--accent);
+  background: #fff7f3;
   color: var(--accent);
 }
 
 .section {
   border-top: 1px solid var(--line);
+  background: var(--paper);
 }
 
 .section h2 {
@@ -208,14 +237,15 @@ a:hover {
 .topic-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 16px;
+  gap: 18px;
   margin-top: 28px;
 }
 
 .topic-card {
   border-top: 3px solid var(--accent);
-  background: var(--page);
-  padding: 18px;
+  background: linear-gradient(180deg, #fff, var(--page));
+  box-shadow: 0 10px 26px rgba(31, 35, 40, 0.06);
+  padding: 20px;
 }
 
 .topic-card h3 {
@@ -234,19 +264,25 @@ a:hover {
 
 .publication-list {
   display: grid;
-  gap: 16px;
-  margin: 24px 0 0;
+  gap: 12px;
+  margin: 22px 0 0;
   padding: 0;
   list-style: none;
 }
 
 .publication {
-  padding: 18px 0;
-  border-top: 1px solid var(--line);
+  padding: 18px 20px;
+  border-left: 3px solid transparent;
+  background: #fff;
+  box-shadow: inset 0 0 0 1px var(--line);
 }
 
 .publication:first-child {
   border-top: 0;
+}
+
+.publication:hover {
+  border-left-color: var(--accent);
 }
 
 .publication-title {
@@ -289,10 +325,12 @@ a:hover {
   border: 1px solid var(--line);
   border-radius: 4px;
   background: #fff;
+  box-shadow: var(--shadow);
 }
 
 .footer {
   border-top: 1px solid var(--line);
+  background: var(--paper);
   color: var(--muted);
   font-size: 14px;
   text-align: right;
@@ -315,7 +353,7 @@ a:hover {
   .nav {
     gap: 16px;
     min-height: auto;
-    padding: 18px 24px;
+    padding: 18px 24px 16px;
   }
 
   .brand {
@@ -339,6 +377,10 @@ a:hover {
 
   .topic-grid {
     grid-template-columns: 1fr;
+  }
+
+  .intro-grid aside {
+    max-width: 380px;
   }
 
   .profile-name,
@@ -366,5 +408,9 @@ a:hover {
 
   .cv-frame {
     min-height: 620px;
+  }
+
+  .publication {
+    padding: 16px;
   }
 }
