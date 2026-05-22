@@ -40,6 +40,7 @@ body {
 
 a {
   color: var(--link);
+  font-family: inherit;
   text-decoration-thickness: 1px;
   text-underline-offset: 0.18em;
 }
@@ -51,6 +52,15 @@ a:hover {
 strong {
   color: var(--ink);
   font-weight: 700;
+}
+
+h1,
+h2,
+h3,
+p,
+li,
+button {
+  font-family: inherit;
 }
 
 .site-header {
@@ -217,7 +227,10 @@ strong {
   border-radius: 6px;
   background: var(--paper);
   color: var(--ink);
+  font-family: inherit;
+  font-size: 15px;
   font-weight: 600;
+  line-height: 1.25;
   text-decoration: none;
 }
 
@@ -276,7 +289,7 @@ strong {
   margin-bottom: 30px;
 }
 
-.section h2 {
+main h2:not(.profile-name) {
   margin: 0 0 18px;
   color: var(--ink);
   font-family: var(--font-main);
@@ -285,7 +298,7 @@ strong {
   line-height: 1.25;
 }
 
-.section h3 {
+main h3 {
   margin: 32px 0 10px;
   color: var(--accent-dark);
   font-family: var(--font-main);
