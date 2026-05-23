@@ -1,18 +1,26 @@
-# Han Yan Academic Page
+# Han Yan
 
-Static GitHub Pages version of `https://sites.google.com/view/hanyanphysics`.
+I am an Assistant Professor at the Institute for Solid State Physics, The University of Tokyo, working with the [Masaki Oshikawa group](https://oshikawa.issp.u-tokyo.ac.jp/index.html) and the [Takashi Oka group](https://oka.issp.u-tokyo.ac.jp/).
 
-The repository is intentionally dependency-free: GitHub Pages can serve the HTML and CSS directly from the repository root.
+My research is in theoretical condensed matter physics, with a focus on quantum spin systems, emergent gauge theories, generalized symmetries, and their applications in quantum information. I am also exploring the potential of AI for Physics.
 
-## Pages
+## Website
 
-- `index.html` - home page
-- `research.html` - research themes and publications
-- `resume.html` - local CV PDF link and embed
-- `code.html` - public code repositories
-- `media.html` - media coverage list with paper citations
-- `grants.html` - current grants, past grants, and honors
+My academic homepage is here:
 
-## Migration Notes
+[https://hanyanphysics.github.io/](https://hanyanphysics.github.io/)
 
-The raw Google Sites captures are stored outside this repository in `../migration-source/` so they can be used as reference material without committing generated Google Sites markup.
+The site includes:
+
+- [Research and publications](https://hanyanphysics.github.io/research.html)
+- [Media coverage](https://hanyanphysics.github.io/media.html)
+- [Grants and honors](https://hanyanphysics.github.io/grants.html)
+- [Public code repositories](https://hanyanphysics.github.io/code.html)
+- [CV](https://hanyanphysics.github.io/resume.html)
+
+## Profiles
+
+- [Google Scholar](https://scholar.google.com/citations?user=gkX6R6QAAAAJ&hl=en)
+- [ORCID](https://orcid.org/0000-0002-9242-1915)
+- [GitHub](https://github.com/hanyanphysics)
+- [LinkedIn](https://www.linkedin.com/in/han-yan-7bb35323/)
