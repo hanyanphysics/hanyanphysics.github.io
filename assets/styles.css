@@ -339,6 +339,10 @@ button {
   color: #1f6feb;
 }
 
+.profile-link.linkedin {
+  color: #0a66c2;
+}
+
 .profile-link.github {
   color: #24292f;
 }
