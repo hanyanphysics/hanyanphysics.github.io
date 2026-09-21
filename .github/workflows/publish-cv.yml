@@ -1,0 +1,84 @@
+name: Publish CV from Overleaf
+
+on:
+  schedule:
+    # Run once per day at 09:17 Japan Standard Time (00:17 UTC).
+    - cron: "17 0 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: true
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Check out website
+        uses: actions/checkout@v6
+
+      - name: Check required secret
+        env:
+          OVERLEAF_TOKEN: ${{ secrets.OVERLEAF_TOKEN }}
+        run: |
+          if [ -z "$OVERLEAF_TOKEN" ]; then
+            echo "The OVERLEAF_TOKEN repository secret is not configured."
+            exit 1
+          fi
+
+      - name: Fetch private Overleaf project
+        env:
+          OVERLEAF_TOKEN: ${{ secrets.OVERLEAF_TOKEN }}
+        run: |
+          askpass="$RUNNER_TEMP/overleaf-askpass"
+          printf '%s\n' \
+            '#!/bin/sh' \
+            'case "$1" in' \
+            '  *Username*) printf "%s\n" "git" ;;' \
+            '  *Password*) printf "%s\n" "$OVERLEAF_TOKEN" ;;' \
+            'esac' > "$askpass"
+          chmod 700 "$askpass"
+          GIT_ASKPASS="$askpass" GIT_TERMINAL_PROMPT=0 \
+            git clone \
+            "https://git.overleaf.com/64ffbc557f94858049ae0c54" overleaf-project
+
+      - name: Compile CV with XeLaTeX
+        uses: xu-cheng/latex-action@v4
+        with:
+          root_file: Resume_Han_Yan.tex
+          working_directory: overleaf-project
+          latexmk_use_xelatex: true
+
+      - name: Assemble public website
+        run: |
+          test -s overleaf-project/Resume_Han_Yan.pdf
+          mkdir _site
+          rsync -a \
+            --exclude '.git/' \
+            --exclude '.github/' \
+            --exclude '_site/' \
+            --exclude 'overleaf-project/' \
+            ./ _site/
+          cp overleaf-project/Resume_Han_Yan.pdf _site/cv.pdf
+          cp overleaf-project/Resume_Han_Yan.pdf _site/assets/cv/Han_Yan_CV.pdf
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload website artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: _site
+
+      - name: Deploy website
+        id: deployment
+        uses: actions/deploy-pages@v4
